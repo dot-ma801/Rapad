@@ -47,9 +47,15 @@ namespace Rapad
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
             this.Visible = false;
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             this.Visible = true;
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.TopMost = false;
+            this.TopMost = true;
         }
     }
 }

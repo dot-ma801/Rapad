@@ -43,6 +43,7 @@ namespace Rapad
             this.textBox1.Location = new System.Drawing.Point(2, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(306, 183);
             this.textBox1.TabIndex = 0;
             this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
@@ -56,7 +57,7 @@ namespace Rapad
             this.ClientSize = new System.Drawing.Size(310, 187);
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(50, 30);
+            this.MinimumSize = new System.Drawing.Size(50, 39);
             this.Name = "Form1";
             this.Text = "Rapad";
             this.TopMost = true;

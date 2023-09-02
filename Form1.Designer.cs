@@ -31,6 +31,13 @@ namespace Rapad
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonChangeFont = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonResetFont = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonChangeTopMost = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -39,12 +46,12 @@ namespace Rapad
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(2, 2);
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(2, 22);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(306, 183);
+            this.textBox1.Size = new System.Drawing.Size(306, 162);
             this.textBox1.TabIndex = 0;
             this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
@@ -52,11 +59,77 @@ namespace Rapad
             this.textBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseDown);
             this.textBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseMove);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonSettings,
+            this.toolStripButtonChangeTopMost,
+            this.toolStripSeparator1,
+            this.toolStripButtonResetFont,
+            this.toolStripButtonChangeFont});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip1.Size = new System.Drawing.Size(310, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonChangeFont
+            // 
+            this.toolStripButtonChangeFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonChangeFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonChangeFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonChangeFont.Image")));
+            this.toolStripButtonChangeFont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangeFont.Name = "toolStripButtonChangeFont";
+            this.toolStripButtonChangeFont.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonChangeFont.Text = "フォント変更";
+            this.toolStripButtonChangeFont.Click += new System.EventHandler(this.toolStripButtonChangeFont_Click);
+            // 
+            // toolStripButtonResetFont
+            // 
+            this.toolStripButtonResetFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonResetFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonResetFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonResetFont.Image")));
+            this.toolStripButtonResetFont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonResetFont.Name = "toolStripButtonResetFont";
+            this.toolStripButtonResetFont.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonResetFont.Text = "フォントリセット";
+            this.toolStripButtonResetFont.Click += new System.EventHandler(this.toolStripButtonResetFont_Click);
+            // 
+            // toolStripButtonSettings
+            // 
+            this.toolStripButtonSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonSettings.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSettings.Image")));
+            this.toolStripButtonSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
+            this.toolStripButtonSettings.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonSettings.Text = "設定";
+            // 
+            // toolStripButtonChangeTopMost
+            // 
+            this.toolStripButtonChangeTopMost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonChangeTopMost.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonChangeTopMost.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonChangeTopMost.Image")));
+            this.toolStripButtonChangeTopMost.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangeTopMost.Name = "toolStripButtonChangeTopMost";
+            this.toolStripButtonChangeTopMost.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonChangeTopMost.Text = "最前面表示";
+            this.toolStripButtonChangeTopMost.Click += new System.EventHandler(this.toolStripButtonChangeTopMost_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 187);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.textBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(50, 39);
@@ -64,6 +137,8 @@ namespace Rapad
             this.Text = "Rapad";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,6 +147,12 @@ namespace Rapad
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonChangeFont;
+        private System.Windows.Forms.ToolStripButton toolStripButtonResetFont;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
+        private System.Windows.Forms.ToolStripButton toolStripButtonChangeTopMost;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

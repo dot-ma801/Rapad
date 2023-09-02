@@ -15,11 +15,19 @@ namespace Rapad
     {
         private Point mousePoint;
         List<string> ListURLs = new List<string>();
+        bool isClickingAlt = false;
 
         public Form1()
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.TopMost = false;
+            this.TopMost = true;
+        }
+
 
         private void textBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -46,16 +54,28 @@ namespace Rapad
 
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
-            this.Visible = false;
-            Thread.Sleep(2000);
-            this.Visible = true;
-
+            if (isClickingAlt)
+            {
+                this.Visible = false;
+                Thread.Sleep(2000);
+                this.Visible = true;
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            this.TopMost = false;
-            this.TopMost = true;
+            if((e.Modifiers & Keys.Alt) == Keys.Alt)
+            {
+                isClickingAlt = true;
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Alt)
+            {
+                isClickingAlt = false;
+            }
         }
     }
 }

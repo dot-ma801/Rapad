@@ -32,11 +32,11 @@ namespace Rapad
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonChangeFont = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonResetFont = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonChangeTopMost = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonResetFont = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonChangeFont = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,28 +75,6 @@ namespace Rapad
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButtonChangeFont
-            // 
-            this.toolStripButtonChangeFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonChangeFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonChangeFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonChangeFont.Image")));
-            this.toolStripButtonChangeFont.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonChangeFont.Name = "toolStripButtonChangeFont";
-            this.toolStripButtonChangeFont.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonChangeFont.Text = "フォント変更";
-            this.toolStripButtonChangeFont.Click += new System.EventHandler(this.toolStripButtonChangeFont_Click);
-            // 
-            // toolStripButtonResetFont
-            // 
-            this.toolStripButtonResetFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonResetFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonResetFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonResetFont.Image")));
-            this.toolStripButtonResetFont.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonResetFont.Name = "toolStripButtonResetFont";
-            this.toolStripButtonResetFont.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonResetFont.Text = "フォントリセット";
-            this.toolStripButtonResetFont.Click += new System.EventHandler(this.toolStripButtonResetFont_Click);
-            // 
             // toolStripButtonSettings
             // 
             this.toolStripButtonSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -123,6 +101,28 @@ namespace Rapad
             this.toolStripSeparator1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonResetFont
+            // 
+            this.toolStripButtonResetFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonResetFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonResetFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonResetFont.Image")));
+            this.toolStripButtonResetFont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonResetFont.Name = "toolStripButtonResetFont";
+            this.toolStripButtonResetFont.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonResetFont.Text = "フォントリセット";
+            this.toolStripButtonResetFont.Click += new System.EventHandler(this.toolStripButtonResetFont_Click);
+            // 
+            // toolStripButtonChangeFont
+            // 
+            this.toolStripButtonChangeFont.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonChangeFont.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonChangeFont.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonChangeFont.Image")));
+            this.toolStripButtonChangeFont.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangeFont.Name = "toolStripButtonChangeFont";
+            this.toolStripButtonChangeFont.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonChangeFont.Text = "フォント変更";
+            this.toolStripButtonChangeFont.Click += new System.EventHandler(this.toolStripButtonChangeFont_Click);
             // 
             // Form1
             // 

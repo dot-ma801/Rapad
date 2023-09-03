@@ -135,10 +135,9 @@
   <data name="toolStripButtonChangeTopMost.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACNSURBVEhL3ZQ5DoAwEAPzNH7OU3gKZIttDCPnIE1GcmUP
-        K1GkbM1Rc9XcnQknXMtZ8/WBlsQRS457afZ+P6AFDg3oaYFDA3pa4NCAnhY4NKCnBQ4N6GmBQwN6WuDQ
-        gJ4WODSgpwUODehpgUMDelrMPHbhvsgyiSd35Ag+1zlYxvIDM/88Yhn955ktKeUBek+lmt5r9jEAAAAA
-        SUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABXSURBVEhLYxgFo2AUkAzmA3E9hEl9ADL8PxRT3RJkw+9D
+        aapZgmy4AxCDDKaaJeiGwwBVLMFlOAxQbAlIEy7DYQBmSQKYRwZQgNL4ADFqRsEoGMGAgQEAL68eHNp1
+        IpsAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripButtonResetFont.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

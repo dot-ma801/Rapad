@@ -134,5 +134,12 @@ namespace Rapad
                 this.Top += e.Y - mousePoint.Y;
             }
         }
+
+        private void toolStripButtonSettings_Click(object sender, EventArgs e)
+        {
+            isForemost = false;
+            settings formSettings = new settings();
+            DialogResult res = formSettings.ShowDialog();
+        }
     }
 }

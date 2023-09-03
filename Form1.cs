@@ -29,25 +29,6 @@ namespace Rapad
             toolStripButtonChangeTopMost.BackColor = Color.FromArgb(179, 215, 243);
         }
 
-
-        private void textBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Middle) == MouseButtons.Middle)
-            {
-                //位置を記憶する
-                mousePoint = new Point(e.X, e.Y);
-            }
-        }
-
-        private void textBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Middle) == MouseButtons.Middle)
-            {
-                this.Left += e.X - mousePoint.X;
-                this.Top += e.Y - mousePoint.Y;
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -134,6 +115,24 @@ namespace Rapad
         private void toolStripButtonResetFont_Click(object sender, EventArgs e)
         {
             this.textBox1.Font = new Font("Consolas", 11);
+        }
+
+        private void MouseDown(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Middle) == MouseButtons.Middle)
+            {
+                //位置を記憶する
+                mousePoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Middle) == MouseButtons.Middle)
+            {
+                this.Left += e.X - mousePoint.X;
+                this.Top += e.Y - mousePoint.Y;
+            }
         }
     }
 }

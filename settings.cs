@@ -16,5 +16,10 @@ namespace Rapad
         {
             InitializeComponent();
         }
+
+        private void settings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
+using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Rapad
 {
@@ -133,6 +136,44 @@ namespace Rapad
                 this.Left += e.X - mousePoint.X;
                 this.Top += e.Y - mousePoint.Y;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            // File.WriteAllText(path);
+            // Directory.CreateDirectory(path);
+        }
+
+        private void toolStripButtonSettings_Click(object sender, EventArgs e)
+        {
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            DateTime date = DateTime.Now;
+            string afterPath = path.Replace("Rapad.exe", "history\\" + date.ToString("yymmdd_hhmmss") + ".txt");
+            FileInfo fileInfo = new FileInfo(afterPath);
+            if (!fileInfo.Directory.Exists)
+            {
+                // フォルダーが存在しない場合は作成
+                fileInfo.Directory.Create();
+            }
+            // ファイルを作成する
+            // FileStream fileStream = 
+            fileInfo.Create();
+            textBox1.Text = afterPath;
+
+
+            //Shift JISで書き込む
+            //書き込むファイルが既に存在している場合は、ファイルの末尾に追加する
+            StreamWriter sw = new StreamWriter(
+                afterPath,
+                true,
+                Encoding.GetEncoding("utf-8"));
+            //TextBox1.Textの内容を書き込む
+            sw.Write(textBox1.Text);
+            //閉じる
+            sw.Close();
         }
     }
 }

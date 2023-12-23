@@ -86,6 +86,7 @@ namespace Rapad
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
             this.toolStripButtonSettings.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSettings.Text = "設定";
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.toolStripButtonSettings_Click);
             // 
             // toolStripButtonChangeTopMost
             // 
@@ -138,6 +139,7 @@ namespace Rapad
             this.Name = "Form1";
             this.Text = "Rapad";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

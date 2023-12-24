@@ -148,7 +148,7 @@ namespace Rapad
             Assembly myAssembly = Assembly.GetEntryAssembly();
             string path = myAssembly.Location;
             DateTime date = DateTime.Now;
-            string afterPath = path.Replace("Rapad.exe", "history\\" + date.ToString("yyMMdd_hhmmss") + ".txt");
+            string afterPath = path.Replace("Rapad.exe", "history\\" + date.ToString("yyMMdd_hmmss") + ".txt");
 
             // ファイル作成部分
             FileInfo fileInfo = new FileInfo(afterPath);
@@ -160,9 +160,9 @@ namespace Rapad
             {
                 fileInfo.Create();
             }
-            
-            // 
-            //Create a file to write to.
+
+            // Error: 別のプロセスで使用されているため、プロセスはファイル 'D:\programs\Rapad\bin\Debug\history\231224_104736.txt' にアクセスできません。
+            //Create a file to write to.(参考: https://learn.microsoft.com/ja-jp/dotnet/api/system.io.fileinfo.createtext?view=net-8.0#-)
             using (StreamWriter sw = fileInfo.CreateText())
             {
                 sw.WriteLine(textBox1.Text);
@@ -171,9 +171,3 @@ namespace Rapad
         }
     }
 }
-
-
-//using (FileStream fs = File.Create(afterPath))
-//{
-//    AddText(fs, textBox1.Text);
-//}

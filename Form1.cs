@@ -140,11 +140,6 @@ namespace Rapad
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void toolStripButtonSettings_Click(object sender, EventArgs e)
-        {
             Assembly myAssembly = Assembly.GetEntryAssembly();
             string path = myAssembly.Location;
             DateTime date = DateTime.Now;
@@ -158,7 +153,7 @@ namespace Rapad
             }
             if (!fileInfo.Exists)
             {
-                fileInfo.Create();
+                using (fileInfo.Create()) ;
             }
 
             // Error: 別のプロセスで使用されているため、プロセスはファイル 'D:\programs\Rapad\bin\Debug\history\231224_104736.txt' にアクセスできません。
@@ -166,8 +161,11 @@ namespace Rapad
             using (StreamWriter sw = fileInfo.CreateText())
             {
                 sw.WriteLine(textBox1.Text);
-                sw.Close();
             }
+        }
+
+        private void toolStripButtonSettings_Click(object sender, EventArgs e)
+        {
         }
     }
 }

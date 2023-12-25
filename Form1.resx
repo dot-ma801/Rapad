@@ -156,6 +156,15 @@
         iE11MGoBQTBqAUEwagFBMGrBKBgQwMAAAEeLUKOd7QWpAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="toolStripButtonOpenFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACnSURBVEhL7ZTdDYAgDIQZxVEcxU0cxVEcxVG0Z3KkRIr8
+        iPHBL7lEKe2lRXQ/n2IUbaLd0CxqYhXFCms1mbBIjEmkjVLCFDCNC9xgUWpygcFuvG6Qc+h3wlg9XCR6
+        Y60GkYeLgAe6nG9lmLnaAEE8By1mYuZqA97ooMVMzFwasEWolGQuA2yxZv7JXBqwxeh1vyGZ+8R3D0V/
+        EwCurSYoXtP5TzecOwAPwZ6BHcmOxgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIAAoQAQAFgAAACgAAAAAAQAAAAIAAAEAIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA

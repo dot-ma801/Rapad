@@ -151,17 +151,26 @@ namespace Rapad
             {
                 fileInfo.Directory.Create();
             }
-            if (!fileInfo.Exists)
+            if (!(String.IsNullOrEmpty(textBox1.Text)))
             {
-                using (fileInfo.Create()) ;
-            }
+                if (!fileInfo.Exists)
+                {
+                    using (fileInfo.Create()) ;
+                }
 
-            // Error: 別のプロセスで使用されているため、プロセスはファイル 'D:\programs\Rapad\bin\Debug\history\231224_104736.txt' にアクセスできません。
-            //Create a file to write to.(参考: https://learn.microsoft.com/ja-jp/dotnet/api/system.io.fileinfo.createtext?view=net-8.0#-)
-            using (StreamWriter sw = fileInfo.CreateText())
-            {
-                sw.WriteLine(textBox1.Text);
+                using (StreamWriter sw = fileInfo.CreateText())
+                {
+                    sw.WriteLine(textBox1.Text);
+                }
             }
+        }
+
+        private void toolStripButtonOpenFolder_Click(object sender, EventArgs e)
+        {
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            string afterPath = path.Replace("Rapad.exe", "history\\");
+            System.Diagnostics.Process.Start("EXPLORER.EXE", afterPath);
         }
 
         private void toolStripButtonSettings_Click(object sender, EventArgs e)

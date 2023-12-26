@@ -138,6 +138,7 @@ namespace Rapad
             this.toolStripButtonOpenFolder.Name = "toolStripButtonOpenFolder";
             this.toolStripButtonOpenFolder.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonOpenFolder.Text = "toolStripButton1";
+            this.toolStripButtonOpenFolder.ToolTipText = "自動保存先を開く";
             this.toolStripButtonOpenFolder.Click += new System.EventHandler(this.toolStripButtonOpenFolder_Click);
             // 
             // Form1

@@ -73,8 +73,8 @@ namespace Rapad
             //初期の色を設定
             fd.Color = textBox1.ForeColor;
             //ユーザーが選択できるポイントサイズの最大値を設定する
-            fd.MaxSize = 15;
-            fd.MinSize = 10;
+            fd.MaxSize = 100;
+            fd.MinSize = 8;
             //存在しないフォントやスタイルをユーザーが選択すると
             //エラーメッセージを表示する
             fd.FontMustExist = true;

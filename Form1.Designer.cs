@@ -37,6 +37,7 @@ namespace Rapad
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonResetFont = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonChangeFont = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOpenFolder = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +68,8 @@ namespace Rapad
             this.toolStripButtonChangeTopMost,
             this.toolStripSeparator1,
             this.toolStripButtonResetFont,
-            this.toolStripButtonChangeFont});
+            this.toolStripButtonChangeFont,
+            this.toolStripButtonOpenFolder});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -86,6 +88,7 @@ namespace Rapad
             this.toolStripButtonSettings.Name = "toolStripButtonSettings";
             this.toolStripButtonSettings.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonSettings.Text = "設定";
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.toolStripButtonSettings_Click);
             // 
             // toolStripButtonChangeTopMost
             // 
@@ -126,6 +129,18 @@ namespace Rapad
             this.toolStripButtonChangeFont.Text = "フォント変更";
             this.toolStripButtonChangeFont.Click += new System.EventHandler(this.toolStripButtonChangeFont_Click);
             // 
+            // toolStripButtonOpenFolder
+            // 
+            this.toolStripButtonOpenFolder.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonOpenFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOpenFolder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOpenFolder.Image")));
+            this.toolStripButtonOpenFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOpenFolder.Name = "toolStripButtonOpenFolder";
+            this.toolStripButtonOpenFolder.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonOpenFolder.Text = "toolStripButton1";
+            this.toolStripButtonOpenFolder.ToolTipText = "自動保存先を開く";
+            this.toolStripButtonOpenFolder.Click += new System.EventHandler(this.toolStripButtonOpenFolder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -138,6 +153,7 @@ namespace Rapad
             this.Name = "Form1";
             this.Text = "Rapad";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -155,6 +171,7 @@ namespace Rapad
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
         private System.Windows.Forms.ToolStripButton toolStripButtonChangeTopMost;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOpenFolder;
     }
 }
 

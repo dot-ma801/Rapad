@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
+using System.Reflection;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Rapad
 {
@@ -133,6 +136,45 @@ namespace Rapad
                 this.Left += e.X - mousePoint.X;
                 this.Top += e.Y - mousePoint.Y;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            DateTime date = DateTime.Now;
+            string afterPath = path.Replace("Rapad.exe", "history\\" + date.ToString("yyMMdd_hmmss") + ".txt");
+
+            // ファイル作成部分
+            FileInfo fileInfo = new FileInfo(afterPath);
+            if (!fileInfo.Directory.Exists)
+            {
+                fileInfo.Directory.Create();
+            }
+            if (!(String.IsNullOrEmpty(textBox1.Text)))
+            {
+                if (!fileInfo.Exists)
+                {
+                    using (fileInfo.Create()) ;
+                }
+
+                using (StreamWriter sw = fileInfo.CreateText())
+                {
+                    sw.WriteLine(textBox1.Text);
+                }
+            }
+        }
+
+        private void toolStripButtonOpenFolder_Click(object sender, EventArgs e)
+        {
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            string afterPath = path.Replace("Rapad.exe", "history\\");
+            System.Diagnostics.Process.Start("EXPLORER.EXE", afterPath);
+        }
+
+        private void toolStripButtonSettings_Click(object sender, EventArgs e)
+        {
         }
     }
 }

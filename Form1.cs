@@ -176,5 +176,10 @@ namespace Rapad
         private void toolStripButtonSettings_Click(object sender, EventArgs e)
         {
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -164,7 +164,7 @@ namespace Rapad
             }
 
             // 一時htmlファイル削除
-            foreach(string htmlTmpFilePath in tmpHtmlFileList)
+            foreach (string htmlTmpFilePath in tmpHtmlFileList)
             {
                 File.Delete(htmlTmpFilePath);
             }
@@ -193,8 +193,16 @@ namespace Rapad
             Assembly myAssembly = Assembly.GetEntryAssembly();
             string path = myAssembly.Location;
             string htmlTmpFilePath = path.Replace("Rapad.exe", "history\\" + (new Random().Next(0, 1000000)).ToString() + ".html");
+            string css;
             FileInfo fileInfo = new FileInfo(htmlTmpFilePath);
-            string css = File.ReadAllText(path.Replace("Rapad.exe", "style.css"));
+            try
+            {
+                css = File.ReadAllText(path.Replace("Rapad.exe", "style.css"));
+            }
+            catch (Exception ex)
+            {
+                css = "";
+            }
             using (StreamWriter sw = fileInfo.CreateText())
             {
                 sw.WriteLine(markdown);

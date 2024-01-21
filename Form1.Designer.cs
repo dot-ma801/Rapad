@@ -151,7 +151,7 @@ namespace Rapad
             this.toolStripButtonMarkdown.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMarkdown.Name = "toolStripButtonMarkdown";
             this.toolStripButtonMarkdown.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMarkdown.Text = "toolStripButton1";
+            this.toolStripButtonMarkdown.Text = "markdownとして開く";
             this.toolStripButtonMarkdown.Click += new System.EventHandler(this.toolStripButtonMarkdown_Click);
             // 
             // Form1

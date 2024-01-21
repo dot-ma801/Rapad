@@ -4,6 +4,10 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 using System.Reflection;
+using Markdig;
+
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Rapad
 {
@@ -12,6 +16,8 @@ namespace Rapad
         private Point mousePoint;
         bool isClickingAlt = false;
         bool isForemost = true;
+        List<string> tmpHtmlFileList = new List<string>();
+
 
         public Form1()
         {
@@ -42,7 +48,7 @@ namespace Rapad
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if((e.Modifiers & Keys.Alt) == Keys.Alt)
+            if ((e.Modifiers & Keys.Alt) == Keys.Alt)
             {
                 isClickingAlt = true;
             }
@@ -156,6 +162,12 @@ namespace Rapad
                     sw.WriteLine(textBox1.Text);
                 }
             }
+
+            // 一時htmlファイル削除
+            foreach(string htmlTmpFilePath in tmpHtmlFileList)
+            {
+                File.Delete(htmlTmpFilePath);
+            }
         }
 
         private void toolStripButtonOpenFolder_Click(object sender, EventArgs e)
@@ -170,9 +182,33 @@ namespace Rapad
         {
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private async void toolStripButtonMarkdown_Click(object sender, EventArgs e)
         {
+            string markdown;
 
+            // markdownをhtmlに変換
+            markdown = Markdown.ToHtml(textBox1.Text);
+
+            // htmlを一時ファイルとして保存
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            string path = myAssembly.Location;
+            string htmlTmpFilePath = path.Replace("Rapad.exe", "history\\" + (new Random().Next(0, 1000000)).ToString() + ".html");
+            FileInfo fileInfo = new FileInfo(htmlTmpFilePath);
+            string css = File.ReadAllText(path.Replace("Rapad.exe", "style.css"));
+            using (StreamWriter sw = fileInfo.CreateText())
+            {
+                sw.WriteLine(markdown);
+                sw.WriteLine("\r\n<style>\r\n" + css + "\r\n</style>");
+            }
+
+            // 先のファイルを規定のブラウザで開く
+            ProcessStartInfo pi = new ProcessStartInfo()
+            {
+                FileName = htmlTmpFilePath,
+                UseShellExecute = true,
+            };
+            tmpHtmlFileList.Add(htmlTmpFilePath);
+            Process.Start(pi);
         }
     }
 }

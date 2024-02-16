@@ -28,6 +28,9 @@ windowsでのみ動作
 - 入力されている文字列をmarkdownパーサにかけhtml に変換し、OS規定のブラウザで表示する
 - スタイルとして、.exeファイルと同階層ある`style.css` が適応される
 
+
+<!--
 ## download
 [releases](https://github.com/dot-ma801/Rapad/releases) タブからzipファイルをDLし、展開する  
 初回起動時に警告が表示されます🙇
+-->

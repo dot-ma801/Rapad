@@ -18,10 +18,10 @@ namespace Rapad
         bool isForemost = true;
         List<string> tmpHtmlFileList = new List<string>();
 
-
         public Form1()
         {
             InitializeComponent();
+            this.toolStrip1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.toolStrip1_MouseWheel);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,6 +29,25 @@ namespace Rapad
             this.TopMost = false;
             this.TopMost = true;
             toolStripButtonChangeTopMost.BackColor = Color.FromArgb(179, 215, 243);
+        }
+
+        private void toolStrip1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                if (this.Opacity <= 1)
+                {
+                    this.Opacity += 0.05;
+
+                }
+            }
+            else
+            {
+                if (this.Opacity >= 0.4)
+                {
+                    this.Opacity -= 0.05;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

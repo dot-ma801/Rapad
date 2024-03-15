@@ -14,7 +14,6 @@ namespace Rapad
     public partial class Form1 : Form
     {
         private Point mousePoint;
-        bool isClickingAlt = false;
         bool isForemost = true;
         List<string> tmpHtmlFileList = new List<string>();
 
@@ -38,7 +37,6 @@ namespace Rapad
                 if (this.Opacity <= 1)
                 {
                     this.Opacity += 0.05;
-
                 }
             }
             else
@@ -53,32 +51,6 @@ namespace Rapad
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void textBox1_DoubleClick(object sender, EventArgs e)
-        {
-            if (isClickingAlt)
-            {
-                this.Visible = false;
-                Thread.Sleep(2000);
-                this.Visible = true;
-            }
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Modifiers & Keys.Alt) == Keys.Alt)
-            {
-                isClickingAlt = true;
-            }
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Alt)
-            {
-                isClickingAlt = false;
-            }
         }
 
         private void toolStripButtonChangeFont_Click(object sender, EventArgs e)

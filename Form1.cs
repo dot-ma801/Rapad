@@ -133,7 +133,23 @@ namespace Rapad
             Assembly myAssembly = Assembly.GetEntryAssembly();
             string path = myAssembly.Location;
             DateTime date = DateTime.Now;
-            string afterPath = path.Replace("Rapad.exe", "history\\" + date.ToString("yyMMdd_hmmss") + ".txt");
+
+            string fileName;
+            string afterPath;
+
+            // 先頭行が "# "始まりだった場合、markdownとして"{先頭行の文字列}.md"とする
+            if (textBox1.Lines[0].ToString().StartsWith("# "))
+            {
+                string noSharpText = textBox1.Lines[0].ToString().Replace("# ", "");
+                fileName = noSharpText + ".md";
+            }
+            else
+            {
+                fileName = date.ToString("yyMMdd_hmmss") + ".txt";
+            }
+
+            afterPath = path.Replace("Rapad.exe", "history\\" + fileName);
+
 
             // ファイル作成部分
             FileInfo fileInfo = new FileInfo(afterPath);

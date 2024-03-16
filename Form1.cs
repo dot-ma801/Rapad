@@ -130,6 +130,8 @@ namespace Rapad
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1.Text)) return;
+
             Assembly myAssembly = Assembly.GetEntryAssembly();
             string path = myAssembly.Location;
             DateTime date = DateTime.Now;
@@ -157,18 +159,18 @@ namespace Rapad
             {
                 fileInfo.Directory.Create();
             }
-            if (!(String.IsNullOrEmpty(textBox1.Text)))
-            {
-                if (!fileInfo.Exists)
-                {
-                    using (fileInfo.Create()) ;
-                }
 
-                using (StreamWriter sw = fileInfo.CreateText())
-                {
-                    sw.WriteLine(textBox1.Text);
-                }
+
+            if (!fileInfo.Exists)
+            {
+                using (fileInfo.Create()) ;
             }
+
+            using (StreamWriter sw = fileInfo.CreateText())
+            {
+                sw.WriteLine(textBox1.Text);
+            }
+
 
             // 一時htmlファイル削除
             foreach (string htmlTmpFilePath in tmpHtmlFileList)

@@ -55,8 +55,6 @@ namespace Rapad
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(306, 162);
             this.textBox1.TabIndex = 0;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             this.textBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             this.textBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMove);
             // 

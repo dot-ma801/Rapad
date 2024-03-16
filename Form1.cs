@@ -175,10 +175,12 @@ namespace Rapad
 
         private async void toolStripButtonMarkdown_Click(object sender, EventArgs e)
         {
+            MarkdownPipeline markdownPipeline = new MarkdownPipelineBuilder().UsePipeTables().Build();
+
             string markdown;
 
             // markdownをhtmlに変換
-            markdown = Markdown.ToHtml(textBox1.Text);
+            markdown = Markdown.ToHtml(textBox1.Text, markdownPipeline);
 
             // htmlを一時ファイルとして保存
             Assembly myAssembly = Assembly.GetEntryAssembly();

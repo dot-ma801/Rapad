@@ -8,6 +8,7 @@ using Markdig;
 
 using System.Diagnostics;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Rapad
 {
@@ -143,7 +144,12 @@ namespace Rapad
             if (textBox1.Lines[0].ToString().StartsWith("# "))
             {
                 string noSharpText = textBox1.Lines[0].ToString().Replace("# ", "");
-                fileName = noSharpText + ".md";
+
+                // ファイル名に使用できない文字を削除
+                string unUsableChar = @"\\|\/|\:|\*|\?|""|<|>|\|";
+                string result = Regex.Replace(noSharpText, unUsableChar, "_");
+
+                fileName = result + ".md";
             }
             else
             {
@@ -151,7 +157,6 @@ namespace Rapad
             }
 
             afterPath = path.Replace("Rapad.exe", "history\\" + fileName);
-
 
             // ファイル作成部分
             FileInfo fileInfo = new FileInfo(afterPath);

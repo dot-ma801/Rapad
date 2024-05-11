@@ -4,13 +4,12 @@ permissions:
   contents: read
   pull-requests: write
 
-on:
-  [push]
+on: [push]
   # pull_request:
   #   types: [opened, synchronize, reopened]
-    branches-ignore:
-      - master
-      - main
+  # branches-ignore:
+  #   - master
+  #   - main
   # pull_request_review_comment:
   #   types: [created]
   # issue_comment:

@@ -59,28 +59,15 @@ namespace Rapad
             //FontDialogクラスのインスタンスを作成
             FontDialog fd = new FontDialog();
 
-            //初期のフォントを設定
             fd.Font = textBox1.Font;
-            //初期の色を設定
             fd.Color = textBox1.ForeColor;
-            //ユーザーが選択できるポイントサイズの最大値を設定する
             fd.MaxSize = 100;
             fd.MinSize = 8;
-            //存在しないフォントやスタイルをユーザーが選択すると
-            //エラーメッセージを表示する
             fd.FontMustExist = true;
-            //横書きフォントだけを表示する
             fd.AllowVerticalFonts = false;
-            //色を選択できるようにする
             fd.ShowColor = true;
-            //取り消し線、下線、テキストの色などのオプションを指定可能にする
-            //デフォルトがTrueのため必要はない
             fd.ShowEffects = true;
-            //固定ピッチフォント以外も表示する
-            //デフォルトがFalseのため必要はない
             fd.FixedPitchOnly = false;
-            //ベクタ フォントを選択できるようにする
-            //デフォルトがTrueのため必要はない
             fd.AllowVectorFonts = true;
 
             //ダイアログを表示する

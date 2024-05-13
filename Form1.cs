@@ -17,7 +17,7 @@ namespace Rapad
         private Point mousePoint;
         bool isForemost = true;
         List<string> tmpHtmlFileList = new List<string>();
-        
+
         // windowsでファイル名に使用できない文字を置換するための正規表現
         const string UNUSABLE_CHARS_PATTERN = @"[\\/:*?""<>|]";
 
@@ -137,11 +137,12 @@ namespace Rapad
             if (String.IsNullOrEmpty(textBox1.Text)) return;
 
             Assembly myAssembly = Assembly.GetEntryAssembly();
-            string path = myAssembly.Location;
+
+            string location = myAssembly.Location;
             DateTime date = DateTime.Now;
 
-            string fileName;
-            string afterPath;
+            string coordinatedFilePath;
+            string fileFullPath;
 
             // 先頭行が "# "始まりだった場合、markdownとして"{先頭行の文字列}.md"とする
             if (textBox1.Lines[0].ToString().StartsWith("# "))
@@ -149,41 +150,59 @@ namespace Rapad
                 string noSharpText = textBox1.Lines[0].ToString().Replace("# ", "");
 
                 // ファイル名に使用できない文字を削除
-                string result = Regex.Replace(noSharpText, UNUSABLE_CHARS_PATTERN, "_");
-
-                fileName = result + ".md";
+                string fileName = Regex.Replace(noSharpText, UNUSABLE_CHARS_PATTERN, "_");
+                fileFullPath = decideFileName(fileName, ".md", location);
             }
             else
             {
-                fileName = date.ToString("yyMMdd_hmmss") + ".txt";
+                string fileName = date.ToString("yyMMdd_hmmss");
+                fileFullPath = decideFileName(fileName, ".txt", location);
             }
 
-            afterPath = path.Replace("Rapad.exe", "history\\" + fileName);
-
             // ファイル作成部分
-            FileInfo fileInfo = new FileInfo(afterPath);
+            FileInfo fileInfo = new FileInfo(fileFullPath);
+
             if (!fileInfo.Directory.Exists)
             {
                 fileInfo.Directory.Create();
             }
 
-
-            if (!fileInfo.Exists)
-            {
-                using (fileInfo.Create()) ;
-            }
+            using (fileInfo.Create()) ;
 
             using (StreamWriter sw = fileInfo.CreateText())
             {
                 sw.WriteLine(textBox1.Text);
             }
 
-
             // 一時htmlファイル削除
             foreach (string htmlTmpFilePath in tmpHtmlFileList)
             {
                 File.Delete(htmlTmpFilePath);
             }
+        }
+
+        /// <summary>
+        /// ファイル名を決定するメソッド
+        /// 重複ファイルが既に保存先に存在している場合、末尾に`_{数字}`を入れる
+        /// 数字は2始まり
+        /// </summary>
+        /// <param name="fileName">string: 単体のファイル名</param>
+        /// <param name="extension">string: 拡張子</param>
+        /// <param name="location">string: 保存先のpath</param>
+        /// <returns>確定したファイル名のFullPath</returns>
+        private string decideFileName(string fileName, string extension, string location)
+        {
+            string fileFullPath = Path.Combine(Path.GetDirectoryName(location), "history", fileName + extension);
+            FileInfo fileInfo = new FileInfo(fileFullPath);
+            if (fileInfo.Exists)
+            {
+                for (int i = 2; fileInfo.Exists; i++)
+                {
+                    fileFullPath = Path.Combine(Path.GetDirectoryName(location), "history", fileName + "_" + i + extension);
+                    fileInfo = new FileInfo(fileFullPath);
+                }
+            }
+            return fileFullPath;
         }
 
         private void toolStripButtonOpenFolder_Click(object sender, EventArgs e)

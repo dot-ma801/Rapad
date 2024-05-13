@@ -17,6 +17,9 @@ namespace Rapad
         private Point mousePoint;
         bool isForemost = true;
         List<string> tmpHtmlFileList = new List<string>();
+        
+        // windowsでファイル名に使用できない文字を置換するための正規表現
+        const string UNUSABLE_CHARS_PATTERN = @"[\\/:*?""<>|]";
 
         public Form1()
         {
@@ -146,8 +149,7 @@ namespace Rapad
                 string noSharpText = textBox1.Lines[0].ToString().Replace("# ", "");
 
                 // ファイル名に使用できない文字を削除
-                string unUsableChar = @"\\|\/|\:|\*|\?|""|<|>|\|";
-                string result = Regex.Replace(noSharpText, unUsableChar, "_");
+                string result = Regex.Replace(noSharpText, UNUSABLE_CHARS_PATTERN, "_");
 
                 fileName = result + ".md";
             }
